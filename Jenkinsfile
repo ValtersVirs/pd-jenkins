@@ -52,7 +52,9 @@ pipeline {
 }
 
 def install() {
-    echo "Building of node application is starting.."
+    echo "Installing dependencies has started.."
+    sh "ls"
+    sh "npm install"
 }
 
 def deploy(String environment, int port) {
