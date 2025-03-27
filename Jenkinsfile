@@ -53,8 +53,9 @@ pipeline {
 
 def install() {
     echo "Installing dependencies has started.."
+    git branch: 'main', poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
     bat "dir"
-    bat "npm install"
+    bat "pip install -r requirements.txt"
 }
 
 def deploy(String environment, int port) {
