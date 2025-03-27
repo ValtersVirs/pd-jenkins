@@ -55,7 +55,8 @@ def install() {
     echo "Installing dependencies has started.."
     git branch: 'main', poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
     bat "dir"
-    bat "pip --help"
+    bat "where python"
+    bat "where pip"
     bat "pip install -r requirements.txt"
 }
 
