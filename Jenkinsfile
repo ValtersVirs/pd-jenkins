@@ -55,15 +55,19 @@ def install() {
     echo "Installing dependencies has started.."
     git branch: 'main', poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
     bat "dir"
-    bat "where python"
-    bat "where pip"
     bat "pip install -r requirements.txt"
 }
 
 def deploy(String environment, int port) {
     echo "Deployment to ${environment} has started.."
+    git branch: 'main', poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
+    bat "pm2 delete greetings-app-${environment} & set\"errorlevel=0\""
+    bat "pm2 start app.py --name greetings-app-${environment} -- --port ${port}"
 }
 
 def test(String environment) {
     echo "Testing on ${environment} has started.."
+    git branch: 'main', poll: false, url: 'https://github.com/mtararujs/course-js-api-framework.git'
+    bat "npm install"
+    bat "npm run greetings greetings_${environment}"
 }
