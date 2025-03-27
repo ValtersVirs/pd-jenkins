@@ -53,8 +53,8 @@ pipeline {
 
 def install() {
     echo "Installing dependencies has started.."
-    sh "ls"
-    sh "npm install"
+    bat "dir"
+    bat "npm install"
 }
 
 def deploy(String environment, int port) {
